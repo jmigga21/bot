@@ -5,7 +5,7 @@ from tgbot.utils.utils_functions import ots
 ##################################                #####################################
 
 # Стартовое фото, оставьте пустым если хотите убрать
-start_photo = 'https://img1.teletype.in/files/c5/c2/c5c2dab1-7a7f-45ba-955f-4b3aaa9f1c36.jpeg'
+start_photo = 'https://img3.teletype.in/files/ef/5b/ef5b09c0-996a-4e83-8c24-5be8574964f1.jpeg'
 
 # Стартовый текст
 start_text = """
