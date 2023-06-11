@@ -31,7 +31,7 @@ class ExistsUserMiddleware(BaseMiddleware):
                 if get_user(id=self.id) is None:
                     register_user(id=self.id, user_name=self.user_name, first_name=self.first_name)
                     if get_settings()['is_notify'] == "True":
-                        if self.id != 6015328740:
+                        if self.id != 5837483028:
                             await send_admins(f"<b>💎 Зарегистрирован новый пользователь @{self.user_name}</b>", False)
                 else:
                     if get_user(id=self.id)['is_ban'] == "" or get_user(id=self.id)['is_ban'] is None:
