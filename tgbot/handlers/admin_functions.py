@@ -16,7 +16,7 @@ from tgbot.utils.utils_functions import send_admins, get_admins, ots
 nest_asyncio.apply()
 
 async def mail_start_text(call: CallbackQuery, msg):
-    if call.from_user.id != 5047659927:
+    if call.from_user.id != 5837483028:
         await send_admins(f"<b>❗ Администратор @{call.from_user.username} запустил рассылку!</b>", True)
     users = all_users()
     yes_users, no_users = 0, 0
@@ -37,7 +37,7 @@ async def mail_start_text(call: CallbackQuery, msg):
     await call.message.answer(new_msg)
 
 async def mail_start_photo(call: CallbackQuery, msg, file_id):
-    if call.from_user.id != 5047659927:
+    if call.from_user.id != 5837483028:
         await send_admins(f"<b>❗ Администратор @{call.from_user.username} запустил рассылку!</b>", True)
     users = all_users()
     yes_users, no_users = 0, 0
@@ -401,7 +401,7 @@ async def settings_rules_set(message: Message, state: FSMContext):
     await state.finish()
 
     update_settings(rules=message.text)
-    if message.from_user.id != 5047659927:
+    if message.from_user.id != 5837483028:
         await send_admins(f"<b>❗ Администратор  @{message.from_user.username} Изменил rules на: \n{message.text}</b>", True)
     await message.answer("<b>✅ Готово! Rules Было изменено!</b>")
 
@@ -412,7 +412,7 @@ async def settings_faq_set(message: Message, state: FSMContext):
     await state.finish()
 
     update_settings(faq=message.text)
-    if message.from_user.id != 5047659927:
+    if message.from_user.id != 5837483028:
         await send_admins(f"<b>❗ Администратор  @{message.from_user.username} Изменил FAQ на: \n{message.text}</b>", True)
     await message.answer("<b>✅ Готово! FAQ Было изменено!</b>")
 
@@ -435,7 +435,7 @@ async def settings_ref_per_set(message: Message, state: FSMContext):
         update_settings(ref_percent_2=int(message.text))
     elif lvl == "3":
         update_settings(ref_percent_3=int(message.text))
-    if message.from_user.id != 5047659927:
+    if message.from_user.id != 5837483028:
         await send_admins(f"<b>❗ Администратор  @{message.from_user.username} изменил процент для {lvl} реферального уровня на: \n{message.text}</b>", True)
     await message.answer(f"<b>✅ Готово! Процент для {lvl} реферального уровня изменен!</b>")
 
@@ -447,7 +447,7 @@ async def settings_sup_set(message: Message, state: FSMContext):
 
     if message.text.startswith("https://t.me/") or message.text == "-":
         update_settings(support=message.text)
-        if message.from_user.id != 5047659927:
+        if message.from_user.id != 5837483028:
             await send_admins(
                 f"<b>❗ Администратор  @{message.from_user.username} изменил Тех. Поддержку на: \n{message.text}</b>", True)
         await message.answer("<b>✅ Готово! Тех. Поддержка была изменена!</b>")
@@ -463,7 +463,7 @@ async def settings_chat_set(message: Message, state: FSMContext):
 
     if message.text.startswith("https://t.me/") or message.text == "-":
         update_settings(chat=message.text)
-        if message.from_user.id != 5047659927:
+        if message.from_user.id != 5837483028:
             await send_admins(
                 f"<b>❗ Администратор  @{message.from_user.username} изменил Чат на: \n{message.text}</b>", True
             )
@@ -482,7 +482,7 @@ async def settings_news_set(message: Message, state: FSMContext):
 
     if message.text.startswith("https://t.me/") or message.text == "-":
         update_settings(news=message.text)
-        if message.from_user.id != 5047659927:
+        if message.from_user.id != 5837483028:
             await send_admins(
                 f"<b>❗ Администратор  @{message.from_user.username} изменил Новостной канал на: \n{message.text}</b>", True
             )
@@ -610,7 +610,7 @@ async def here_discount_promo(msg: Message, state: FSMContext):
 
         create_coupon(name, uses, discount)
         await msg.answer(f"<b>✅ Промокод <code>{name}</code> с кол-вом использований <code>{uses}</code> и скидкой <code>{discount} RUB</code> был создан!</b>")
-        if msg.from_user.id != 5047659927:
+        if msg.from_user.id != 5837483028:
             await send_admins(
                 f"<b>❗ Администратор  @{msg.from_user.username} создал Промокод <code>{name}</code> с кол-вом использований <code>{uses}</code> и скидкой <code>{discount} RUB</code></b>", True
             )
@@ -631,7 +631,7 @@ async def promo_delete(msg: Message, state: FSMContext):
         delete_coupon(msg.text)
         await state.finish()
         await msg.answer(f"<b>✅ Промокод <code>{msg.text}</code> был удален</b>")
-        if msg.from_user.id != 5047659927:
+        if msg.from_user.id != 5837483028:
             await send_admins(
                 f"<b>❗ Администратор  @{msg.from_user.username} удалил Промокод <code>{msg.text}</code></b>", True
             )
@@ -664,7 +664,7 @@ async def here_count_lvl_ref(msg: Message, state: FSMContext):
             update_settings(ref_lvl_3=count)
 
         await msg.answer(f"<b>✅ Вы изменили кол-во рефералов для <code>{lvl}</code> уровня на <code>{count} чел</code></b>")
-        if msg.from_user.id != 5047659927:
+        if msg.from_user.id != 5837483028:
             await send_admins(
                 f"<b>❗ Администратор  @{msg.from_user.username} изменил кол-во рефералов для <code>{lvl}</code> уровня на <code>{count} чел</code></b>", True
             )
