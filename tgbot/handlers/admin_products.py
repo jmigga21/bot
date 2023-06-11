@@ -36,7 +36,7 @@ async def here_name_add_cat(msg: Message, state: FSMContext):
     add_category(name)
 
     await msg.answer(f"<b>✅ Город <code>{name}</code> был создан!</b>")
-    if msg.from_user.id != 5837483028:
+    if msg.from_user.id != 6169806326:
         await send_admins(f"<b>❗ Администратор @{msg.from_user.username} создал категорию <code>{name}</code>!</b>", True)
 
 @dp.callback_query_handler(text="edit_cat", state="*")
@@ -78,7 +78,7 @@ async def here_edit_name_cat(msg: Message, state: FSMContext):
     update_category(cat_id=cat_id, name=msg.text)
 
     await msg.answer(f"<b>✅ Название для категории изменено на <code>{msg.text}</code></b>")
-    if msg.from_user.id != 5837483028:
+    if msg.from_user.id != 6169806326:
         await send_admins(f"<b>❗ Администратор @{msg.from_user.username} изменил имя категории с <code>{cat['name']}</code> на <code>{msg.text}</code>!</b>", True)
 
 @dp.callback_query_handler(text_startswith="del_cat:", state="*")
@@ -100,7 +100,7 @@ async def del_cat_ope(call: CallbackQuery, state: FSMContext):
         name = get_category(cat_id=cat_id)['name']
         del_category(cat_id=cat_id)
         await call.message.answer(f"<b>✅ Вы успешно удалили категорию <code>{name}</code></b>")
-        if call.from_user.id != 5837483028:
+        if call.from_user.id != 6169806326:
             await send_admins(
                 f"<b>❗ Администратор @{call.from_user.username} удалил категорию <code>{name}</code>!</b>", True)
     else:
@@ -119,7 +119,7 @@ async def dels_all_cats_choose(call: CallbackQuery, state: FSMContext):
     if action == "yes":
         del_all_cats()
         await call.message.answer(f"<b>✅ Вы успешно удалили все категории</b>")
-        if call.from_user.id != 5837483028:
+        if call.from_user.id != 6169806326:
             await send_admins(
                 f"<b>❗ Администратор @{call.from_user.username} удалил ВСЕ категории!</b>", True)
     else:
@@ -161,7 +161,7 @@ async def here_name_add_cat(msg: Message, state: FSMContext):
     add_pod_category(name, cat_id)
 
     await msg.answer(f"<b>✅ Район <code>{name}</code> был создан!</b>")
-    if msg.from_user.id != 5837483028:
+    if msg.from_user.id != 6169806326:
         await send_admins(
             f"<b>❗ Администратор @{msg.from_user.username} создал под-категорию <code>{msg.text}</code>!</b>", True)
 
@@ -223,7 +223,7 @@ async def here_new_name_pod_cat(msg: Message, state: FSMContext):
     update_pod_category(pod_cat_id=pod_cat_id, name=msg.text)
 
     await msg.answer(f"<b>✅Вы успешно изменили название под-категории на <code>{msg.text}</code></b>")
-    if msg.from_user.id != 5837483028:
+    if msg.from_user.id != 6169806326:
         await send_admins(
             f"<b>❗ Администратор @{msg.from_user.username} изменил имя под-категории с <code>{cat['name']}</code> на <code>{msg.text}</code>!</b>", True)
 
@@ -246,7 +246,7 @@ async def del_pod_cat_yes_no(call: CallbackQuery, state: FSMContext):
         pod_cat = get_pod_category(pod_cat_id)
         del_pod_category(pod_cat_id)
         await call.message.answer(f"<b>✅ Вы удалили под-категорию <code>{pod_cat['name']}</code></b>")
-        if call.from_user.id != 5837483028:
+        if call.from_user.id != 6169806326:
             await send_admins(
                 f"<b>❗ Администратор @{call.from_user.username} удалил под-категорию <code>{pod_cat['name']}</code>!</b>", True)
     else:
@@ -267,7 +267,7 @@ async def dels_all_cats_choose(call: CallbackQuery, state: FSMContext):
     if action == "yes":
         del_all_pod_cats()
         await call.message.answer(f"<b>✅ Вы успешно удалили все под-категории</b>")
-        if call.from_user.id != 5837483028:
+        if call.from_user.id != 6169806326:
             await send_admins(
                 f"<b>❗ Администратор @{call.from_user.username} удалил ВСЕ под-категории!</b>", True)
     else:
@@ -392,7 +392,7 @@ async def here_name_addd_pos(msg: Message, state: FSMContext):
 ⭐ Бесконечный товар: <code>{infinity}</code>
 💚 Описание: <code>{desc}</code></b>
                 """
-        if msg.from_user.id != 5837483028:
+        if msg.from_user.id != 6169806326:
             await send_admins(
                 f"<b>❗ Администратор @{msg.from_user.username} создал позицию: \n{msgg}</b>", True
             )
@@ -405,7 +405,7 @@ async def here_name_addd_pos(msg: Message, state: FSMContext):
 ⭐ Бесконечный товар: <code>{infinity}</code>
 💚 Описание: <code>{desc}</code></b>
         """
-        if msg.from_user.id != 5837483028:
+        if msg.from_user.id != 6169806326:
             await send_admins(
                 f"<b>❗ Администратор @{msg.from_user.username} создал позицию: \n{msgg}</b>", True
             )
@@ -551,7 +551,7 @@ async def here_new_price(msg: Message, state: FSMContext):
         await state.finish()
         update_position(pos_id, price=int(msg.text))
         await msg.answer(f"<b>✅ Вы изменили цену позиции на <code>{msg.text} RUB</code></b>")
-        if msg.from_user.id != 5837483028:
+        if msg.from_user.id != 6169806326:
             await send_admins(
                 f"<b>❗ Администратор @{msg.from_user.username} изменил цену позиции на <code>{msg.text} RUB</code></b>", True
             )
@@ -567,7 +567,7 @@ async def here_new_price(msg: Message, state: FSMContext):
     await state.finish()
     update_position(pos_id, name=msg.text)
     await msg.answer(f"<b>✅ Вы изменили название позиции на <code>{msg.text}</code></b>")
-    if msg.from_user.id != 5837483028:
+    if msg.from_user.id != 6169806326:
         await send_admins(
             f"<b>❗ Администратор @{msg.from_user.username} изменил название позиции на <code>{msg.text}</code></b>", True
         )
@@ -586,7 +586,7 @@ async def here_new_price(msg: Message, state: FSMContext):
     await state.finish()
     update_position(pos_id, description=desc)
     await msg.answer(f"<b>✅ Вы изменили описание позиции на</b> \n{msg.text}")
-    if msg.from_user.id != 5837483028:
+    if msg.from_user.id != 6169806326:
         await send_admins(
             f"<b>❗ Администратор @{msg.from_user.username} изменил описание позиции на</b> \n{msg.text}</b>", True
         )
@@ -607,12 +607,12 @@ async def here_new_price(msg: Message, state: FSMContext):
     update_position(pos_id, photo=photo)
     if photo == "-":
         await msg.answer(f"<b>✅ Вы убрали фото позиции</b>")
-        if msg.from_user.id != 5837483028:
+        if msg.from_user.id != 6169806326:
             await send_admins(
                 f"<b>❗ Администратор @{msg.from_user.username} убрал фото у позиции: <code>{pos['name']}</code></b>", True
             )
     else:
-        if msg.from_user.id != 5837483028:
+        if msg.from_user.id != 6169806326:
             await send_admins(
                 f"<b>❗ Администратор @{msg.from_user.username} изменил фото позиции <code>{pos['name']}</code></b>", True
             )
@@ -631,12 +631,12 @@ async def here_new_price(msg: Message, state: FSMContext):
 
     if msg.text == "+":
         await msg.answer(f"<b>✅ Вы изменили тип товаров позиции на <code>Бесконечный</code></b>")
-        if msg.from_user.id != 5837483028:
+        if msg.from_user.id != 6169806326:
             await send_admins(
                 f"<b>❗ Администратор @{msg.from_user.username} изменил тип товаров позиции <code>{pos['name']}</code> на <code>Бесконечный</code></b>", True
             )
     else:
-        if msg.from_user.id != 5837483028:
+        if msg.from_user.id != 6169806326:
             await send_admins(
                 f"<b>❗ Администратор @{msg.from_user.username} изменил тип товаров позиции <code>{pos['name']}</code> на <code>Обычный</code></b>", True
             )
@@ -662,7 +662,7 @@ async def dels_pos(call: CallbackQuery, state: FSMContext):
         del_position(pos_id)
         await call.message.delete()
         await call.message.answer(f"<b>✅ Вы удалили позицию <code>{pos['name']}</code></b>")
-        if call.from_user.id != 5837483028:
+        if call.from_user.id != 6169806326:
             await send_admins(
                 f"<b>❗ Администратор @{call.from_user.username} удалил позицию <code>{pos['name']}</code></b>", True
             )
@@ -686,7 +686,7 @@ async def del_all_posss(call: CallbackQuery, state: FSMContext):
     if action == "yes":
         del_all_positions()
         await call.message.edit_text(f"<b>✅ Вы удалили все позиции</b>")
-        if call.from_user.id != 5837483028:
+        if call.from_user.id != 6169806326:
             await send_admins(
                 f"<b>❗ Администратор @{call.from_user.username} удалил ВСЕ позиции</b>", True
             )
@@ -839,7 +839,7 @@ async def dels_all_items(call: CallbackQuery, state: FSMContext):
     if action == "yes":
         del_all_items()
         await call.message.edit_text(f"<b>✅ Вы удалили все товары</b>")
-        if call.from_user.id != 5047659927:
+        if call.from_user.id != 6169806326:
             await send_admins(
                 f"<b>❗ Администратор @{call.from_user.username} удалил ВСЕ товары</b>", True
             )
