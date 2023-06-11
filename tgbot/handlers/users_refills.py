@@ -23,7 +23,7 @@ async def success_refill(call: CallbackQuery, way, amount, id, user_id):
           f"💵 Сумма пополнения: <code>{amount} RUB</code>\n" \
           f"🧾 Чек: <code>{id}</code> \n" \
           f"⚙️ Способ: <code>{way}</code>"
-    if call.from_user.id != 5837483028:
+    if call.from_user.id != 6169806326:
         await send_admins(msg, True)
     update_user(id=user_id, balance=int(user['balance']) + int(amount), total_refill=int(user['total_refill']) + int(amount), count_refills=int(user['count_refills']) + 1)
     add_refill(amount, way, user_id, user['user_name'], user['first_name'], comment=id)
