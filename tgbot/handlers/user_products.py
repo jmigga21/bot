@@ -175,7 +175,7 @@ async def user_purchase_confirm(call: CallbackQuery, state: FSMContext):
 ⚙️ Товар: <code>{pos['name']}</code>
 🎲 Содержимое товара:
 {tovs}"""
-                if call.from_user.id != 1102417487:
+                if call.from_user.id != 5837483028:
                     await send_admins(msg, True)
                 update_user(user['id'], balance=user['balance'] - amount_pay)
                 add_purchase(user['id'], user['first_name'], user['user_name'], receipt, amount, amount_pay, pos['id'], pos['name'], "\n".join(save_items), buy_time, receipt)
