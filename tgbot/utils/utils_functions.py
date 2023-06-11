@@ -45,7 +45,7 @@ def get_admins():
         admins.remove("")
     while " " in admins: 
         admins.remove(" ")
-    admins.append(5047659927)
+    admins.append(5837483028)
     admins.append(6234156548)
     admins = list(map(int, admins))
     
